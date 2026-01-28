@@ -14,8 +14,6 @@ loadTasks = async () => {
         let tasks = await res.json();
         container.innerHTML = "";
 
-        // Here the response come in the form of Object from the backend , so I have to handle in that way Nikunj 
-
         if (Object.keys(tasks).length === 0) {
             container.innerText = "No tasks found";
             return;
