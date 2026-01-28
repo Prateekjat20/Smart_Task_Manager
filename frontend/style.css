@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #020617;
+    --bg-card: rgba(255, 255, 255, 0.04);
+
+    --text-primary: #E5E7EB;
+    --text-secondary: #94A3B8;
+
+    --accent-primary: #22D3EE;   /* neon teal */
+    --accent-secondary: #0EA5E9; /* cyber blue */
+
+    --border-color: rgba(148, 163, 184, 0.18);
+    --input-bg: rgba(255, 255, 255, 0.06);
+    --danger: #F87171;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #020617, #000);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* ================== LAYOUT ================== */
+
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* ================== TITLES ================== */
+
+.app-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    background: linear-gradient(
+        90deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+/* ================== CARDS ================== */
+
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ================== INPUTS ================== */
+
+input {
+    width: 100%;
+    padding: 13px 16px;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+input::placeholder {
+    color: #64748B;
+}
+
+input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25);
+    background: rgba(34, 211, 238, 0.05);
+}
+
+/* ================== FORMS ================== */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.input-row {
+    display: flex;
+    gap: 12px;
+}
+
+/* ================== BUTTONS ================== */
+
+button {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    padding: 13px 26px;
+    transition: all 0.25s ease;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Primary Button */
+.btn-primary {
+    width: 100%;
+    color: #020617;
+    background: linear-gradient(
+        90deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+    );
+    box-shadow: 0 6px 22px rgba(34, 211, 238, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px rgba(34, 211, 238, 0.45);
+}
+
+/* Danger Button */
+.btn-danger {
+    background: rgba(248, 113, 113, 0.12);
+    color: var(--danger);
+    border: 1px solid rgba(248, 113, 113, 0.4);
+    white-space: nowrap;
+}
+
+.btn-danger:hover {
+    background: rgba(248, 113, 113, 0.25);
+    border-color: var(--danger);
+}
+
+/* ================== TASK GRID ================== */
+
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+#tasks > div {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+#tasks > div:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-primary);
+    background: rgba(34, 211, 238, 0.06);
+}
+
+/* ================== TEXT INSIDE TASK ================== */
+
+#tasks > div h3,
+#tasks > div h4,
+#tasks > div strong {
+    font-size: 16px;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+#tasks > div p,
+#tasks > div span {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ================== RESPONSIVE ================== */
+
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+    }
+
+    .btn-danger {
+        width: 100%;
+    }
+}
