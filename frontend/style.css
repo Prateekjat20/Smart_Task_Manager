@@ -1,18 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-    --bg-dark: #020617;
-    --bg-card: rgba(255, 255, 255, 0.04);
-
-    --text-primary: #E5E7EB;
-    --text-secondary: #94A3B8;
-
-    --accent-primary: #22D3EE;   /* neon teal */
-    --accent-secondary: #0EA5E9; /* cyber blue */
-
-    --border-color: rgba(148, 163, 184, 0.18);
-    --input-bg: rgba(255, 255, 255, 0.06);
-    --danger: #F87171;
+    --bg-dark: #09090B;
+    --text-primary: #FAFAFA;
+    --text-secondary: #A1A1AA;
+    --accent-orange: #FB923C;
+    --accent-orange-dark: #EA580C;
+    --glass-bg: rgba(250, 250, 250, 0.02);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(250, 250, 250, 0.05);
 }
 
 * {
@@ -23,15 +19,13 @@
 }
 
 body {
-    background: radial-gradient(circle at top, #020617, #000);
+    background-color: var(--bg-dark);
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     padding: 40px 20px;
 }
-
-/* ================== LAYOUT ================== */
 
 .main-container {
     width: 100%;
@@ -41,18 +35,12 @@ body {
     gap: 32px;
 }
 
-/* ================== TITLES ================== */
-
 .app-title {
     text-align: center;
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 700;
     margin-bottom: 16px;
-    background: linear-gradient(
-        90deg,
-        var(--accent-primary),
-        var(--accent-secondary)
-    );
+    background: linear-gradient(90deg, #FAFAFA 0%, #A1A1AA 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -64,47 +52,39 @@ h2 {
     margin-bottom: 16px;
 }
 
-/* ================== CARDS ================== */
-
 .glass-card {
-    background: var(--bg-card);
+    background: var(--glass-bg);
     border: 1px solid var(--border-color);
-    border-radius: 18px;
+    border-radius: 16px;
     padding: 24px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
 }
-
-/* ================== INPUTS ================== */
 
 input {
     width: 100%;
-    padding: 13px 16px;
+    padding: 12px 16px;
     background: var(--input-bg);
     border: 1px solid var(--border-color);
-    border-radius: 10px;
+    border-radius: 8px;
     color: var(--text-primary);
     font-size: 14px;
     outline: none;
-    transition: all 0.25s ease;
-}
-
-input::placeholder {
-    color: #64748B;
+    transition: all 0.2s;
 }
 
 input:focus {
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25);
-    background: rgba(34, 211, 238, 0.05);
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 0 1px rgba(251, 146, 60, 0.2);
 }
 
-/* ================== FORMS ================== */
+input::placeholder {
+    color: #52525B;
+}
 
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     margin-bottom: 16px;
 }
 
@@ -113,97 +93,82 @@ input:focus {
     gap: 12px;
 }
 
-/* ================== BUTTONS ================== */
-
 button {
     cursor: pointer;
     font-weight: 600;
     font-size: 14px;
     border: none;
-    border-radius: 10px;
-    padding: 13px 26px;
-    transition: all 0.25s ease;
+    border-radius: 8px;
+    padding: 12px 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:active {
-    transform: scale(0.97);
+    transform: scale(0.98);
 }
 
-/* Primary Button */
 .btn-primary {
     width: 100%;
-    color: #020617;
-    background: linear-gradient(
-        90deg,
-        var(--accent-primary),
-        var(--accent-secondary)
-    );
-    box-shadow: 0 6px 22px rgba(34, 211, 238, 0.35);
+    background: linear-gradient(90deg, #FB923C 0%, #EA580C 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(251, 146, 60, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 30px rgba(34, 211, 238, 0.45);
+    box-shadow: 0 6px 20px rgba(251, 146, 60, 0.4);
 }
 
-/* Danger Button */
 .btn-danger {
-    background: rgba(248, 113, 113, 0.12);
-    color: var(--danger);
-    border: 1px solid rgba(248, 113, 113, 0.4);
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
     white-space: nowrap;
 }
 
 .btn-danger:hover {
-    background: rgba(248, 113, 113, 0.25);
-    border-color: var(--danger);
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #EF4444;
 }
-
-/* ================== TASK GRID ================== */
 
 .task-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 18px;
+    gap: 16px;
 }
 
-#tasks > div {
-    background: var(--bg-card);
+#tasks>div {
+    background: var(--glass-bg);
     border: 1px solid var(--border-color);
-    border-radius: 14px;
-    padding: 18px;
+    border-radius: 12px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    transition: transform 0.2s;
     position: relative;
-    transition: all 0.25s ease;
 }
 
-#tasks > div:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent-primary);
-    background: rgba(34, 211, 238, 0.06);
+#tasks>div:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(250, 250, 250, 0.04);
 }
 
-/* ================== TEXT INSIDE TASK ================== */
-
-#tasks > div h3,
-#tasks > div h4,
-#tasks > div strong {
+#tasks>div h3,
+#tasks>div h4,
+#tasks>div strong {
     font-size: 16px;
     color: var(--text-primary);
     margin: 0;
 }
 
-#tasks > div p,
-#tasks > div span {
+#tasks>div p,
+#tasks>div span {
     font-size: 13px;
     color: var(--text-secondary);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.4;
 }
-
-/* ================== RESPONSIVE ================== */
 
 @media (max-width: 600px) {
     .input-row {
